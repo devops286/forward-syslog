@@ -1,0 +1,19 @@
+vim /etc/rsyslog.d/esxi-forward.conf
+
+# Load the imfile module
+module(load="imfile" PollingInterval="10")
+
+# Define the input file
+input(type="imfile"
+      File="/var/log/esxi/esxi.log"
+      Tag="esxi-log"
+      StateFile="state-esxi-log")
+
+# Forward logs to QRadar
+if $programname == 'esxi-log' then @@<qradar_ip>:514
+
+
+systemctl restart rsyslog
+
+verify:
+echo "Test log message from ESXi log file" >> /var/log/esxi/esxi.log
