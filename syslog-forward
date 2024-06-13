@@ -1,3 +1,7 @@
+echo "Test log message from ESXi CRC log file" >> /var/log/esxi/esxi-crc.log
+
+
+
 Jun 12 13:15:09 dny2d1sif02 rsyslogd[2694421]: [origin software="rsyslogd" swVersion="8.2102.0-5.el8" x-pid="2694421" x-info="https://www.rsyslog.com"] exiting on signal 15.
 Jun 12 13:15:09 dny2d1sif02 systemd[1]: rsyslog.service: Succeeded.
 Jun 12 13:15:09 dny2d1sif02 rsyslogd[2698234]: error during parsing file /etc/rsyslog.d/esxi-forward.conf, on or before line 8: parameter 'statefile' deprecated but accepted, consider removing or replacing it [v8.2102.0-5.el8 try https://www.rsyslog.com/e/2207 ]
